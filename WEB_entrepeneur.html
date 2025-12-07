@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QR Code Project – FanS(Fun and Smart)</title>
+  <style>
+   body {
+      font-family: 'Open Sans', sans-serif;
+      
+      /* GANTI URL INI: Link pinterest tidak akan berfungsi. 
+        Gunakan link yang langsung ke file .jpg atau .png.
+        Ini adalah link contoh yang akan berfungsi:
+      */
+      background: url('https://cdn.pixabay.com/photo/2022/07/04/02/10/playground-7300196_1280.png') no-repeat center center fixed;
+      
+      background-size: cover;
+      margin: 0;
+      padding: 40px;
+      color: #0f172a;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
+    }
+
+    /* Perbaikan: Menghapus tanda ']' yang salah ketik */
+    h1 {
+      margin-bottom: 10px;
+      font-size: 48px;
+      color: #e91e63;
+      font-family: 'Fredoka One', cursive;
+      text-shadow: 3px 3px 0px rgba(255,255,255,0.8), 
+                   -2px -2px 0px rgba(0,0,0,0.2);
+    }
+
+    p {
+      color: #3f51b5;
+      font-size: 18px;
+      font-weight: 600;
+      /* Perbaikan: typo texl-shadow menjadi text-shadow */
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+      justify-items: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      padding: 25px;
+      max-width: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 3px solid #ffeb3b;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) rotate(2deg);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+    .qr {
+      width: 180px;
+      height: 180px;
+      margin-bottom: 15px;
+      border: 5px solid #4caf50;
+      border-radius: 10px;
+    }
+
+    .label {
+      font-weight: 700;
+      color: #ff5722;
+      margin-bottom: 10px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 20px;
+      text-shadow: 1px 1px 0px rgba(255,255,255,0.7);
+    }
+
+    .btn {
+      text-decoration: none;
+      background: #ff9800;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 25px;
+      transition: background 0.2s, transform 0.2s;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      background: #f57c00;
+      transform: translateY(-2px);
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <h1>FanS(Fun and Smart)</h1>
+  <p>Pindai salah satu kode QR berikut untuk mengakses informasi terkait proyek ini.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="qr" id="qr1"></div>
+      <div class="label">Video Pembelajaran</div>
+      <a href="https://bit.ly/VideoMathFanS" class="btn" target="_blank">Tonton</a>
+    </div>
+
+    <div class="card">
+      <div class="qr" id="qr2"></div>
+      <div class="label">Game Edukasi</div>
+      <a href="https://aflahmeong.github.io/Teka-teki-berhitung/tekatekiberhitung.html" class="btn" target="_blank">Mainkan</a>
+    </div>
+  </div>
+    
+  <script>
+    // Ganti isi link di sini sesuai kebutuhan kamu
+    const qrCodes = [
+      { id: "qr1", text: "https://bit.ly/VideoMathFanS" },
+      { id: "qr2", text: "https://aflahmeong.github.io/Teka-teki-berhitung/tekatekiberhitung.html" },
+    ];
+
+    qrCodes.forEach(item => {
+      new QRCode(document.getElementById(item.id), {
+        text: item.text,
+        width: 180,
+        height: 180,
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    });
+  </script>
+</body>
+</html>
